@@ -1,0 +1,52 @@
+@import "colors";
+
+.nav-button {
+    position: relative;
+
+    padding: {
+        top: 0.5rem;
+        bottom: 0.5rem;
+        left: 1rem;
+        right: 1rem;
+    }
+
+    cursor: pointer;
+
+    &:hover {
+        background: rgba(0, 0, 0, 0.05);
+    }
+
+    overflow-x: hidden;
+}
+
+
+
+.right-button {
+    margin-right: 2rem;
+}
+
+.underline {
+    position: relative;
+    height: 1px;
+    width: inherit;
+    border-bottom: 2px solid black;
+}
+
+.main-logo {
+    height: 6rem;
+    padding: 1rem;
+}
+
+.apex {
+    background: $cloud;
+    background: linear-gradient(180deg, $cloud 0%, rgba(255,255,255,0) 100%);
+}
+
+.footer {
+    border-top: 1px solid black;
+    padding: 0.25rem;
+}
+
+.footer-text {
+    font-size: 85%;
+}

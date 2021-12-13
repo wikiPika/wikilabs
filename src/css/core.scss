@@ -1,0 +1,106 @@
+* {
+    box-sizing: border-box;
+
+    overflow-x: hidden;
+
+    font-family: "Titillium Web";
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+.col {
+    display: flex;
+    flex-direction: column;
+}
+
+// col center, row center
+.col-cc {
+    @extend .col;
+    justify-content: center;
+    align-items: center;
+}
+// col start, row center
+.col-sc {
+    @extend .col;
+    justify-content: flex-start;
+    align-items: center;
+}
+// col start, row start
+.col-ss {
+    @extend .col;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+// col center, row stretch
+.col-ct {
+    @extend .col;
+    justify-content: center;
+    align-items: stretch;
+}
+
+// row center, col center
+.row-cc {
+    @extend .row;
+    justify-content: center;
+    align-items: center;
+}
+// row center, col stretch
+.row-ct {
+    @extend .row;
+    justify-content: center;
+    align-items: stretch;
+}
+// row center, col start
+.row-cs {
+    @extend .row;
+    justify-content: center;
+    align-items: flex-start;
+}
+// row between, col center
+.row-bc {
+    @extend .row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.h-bar {
+    height: 1px;
+    width: 100%;
+    border-bottom: 1px solid black;
+}
+
+// border radius 1 - 4rem
+@for $i from 1 through 4 {
+    $border_radius: 1rem * $i;
+    .rounded-#{$i} {
+        border-radius: $border_radius;
+    }
+}
+
+// font sizes 50% - 400%
+@for $i from 0 through 10 {
+    $font_size: 50% + (10% * $i);
+    .font-#{$i} {
+        border-radius: $font_size;
+    }
+}
+@for $i from 1 through 10 {
+    $font_size: 150% + (25% * $i);
+    .font-#{$i} {
+        border-radius: $font_size;
+    }
+}
+
+@for $i from 1 through 4 {
+    $num: 25 * $i;
+    $percentage: 25% * $i;
+    .w-#{$num} {
+        width: $percentage;
+    }
+
+    .h-#{$num} {
+        height: $percentage;
+    }
+}

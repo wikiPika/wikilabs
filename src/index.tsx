@@ -1,12 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import Core from './Core';
 import reportWebVitals from './reportWebVitals';
+
+/*
+Do any fontsource imports here.
+ */
+
+import "@fontsource/titillium-web";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Core />
   </React.StrictMode>,
   document.getElementById('root')
 );
