@@ -1,39 +1,40 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import "../../css/core.scss";
 import "../../css/layout.scss";
 import mainLogo from "../../img/main-logo-cropped.png";
 import {motion, AnimateSharedLayout} from "framer-motion";
 import {transitSpring} from "../../misc/Animations";
+import {Link, useNavigate} from "react-router-dom";
 
 const leftButtonBarData = [
     {
         text: "Home",
         color: "#0042B0",
-        href: "",
+        href: "/",
     },
     {
-        text: "Products",
+        text: "Projects",
         color: "#0042B0",
-        href: "",
-    },
-    {
-        text: "Blog",
-        color: "#0042B0",
-        href: "",
-    },
-    {
-        text: "About Us",
-        color: "#0042B0",
-        href: "",
+        href: "/projects",
     },
 ]
 
 export default function Navigation(props: {
-
+    currentHref: any;
 }) {
 
     const [leftBarSelected, setLeftBarSelected] = useState(0);
+    const navigate = useNavigate();
     const [hovering, setHovering] = useState(-1);
+
+    useEffect(() => {
+        for (let i = 0; i < leftButtonBarData.length; i++) {
+            if (leftButtonBarData[i].href == props.currentHref.pathname) {
+                setLeftBarSelected(i);
+                return;
+            }
+        }
+    }, [])
 
     return <div className="apex col-cc w-100" onMouseLeave={() => setHovering(-1)}>
         {/*Just the top*/}
@@ -46,7 +47,10 @@ export default function Navigation(props: {
                 <AnimateSharedLayout>
                     <div className="left-button-bar row-cc">
                         {leftButtonBarData.map(({text, color, href}, index) => {
-                            return <motion.div key={index} onMouseEnter={() => setHovering(index)} className="nav-button" style={{color: index === leftBarSelected ? color : ""}} onClick={() => setLeftBarSelected(index)} animate layout>
+                            return <motion.div key={index} onMouseEnter={() => setHovering(index)} className="nav-button" style={{color: index === leftBarSelected ? color : ""}} onClick={() => {
+                                setLeftBarSelected(index);
+                                navigate(href);
+                            }} animate layout>
                                 {text}
                                 {index === leftBarSelected && (
                                     <motion.div layoutId="underline" className="underline" style={{borderColor: color}} transition={transitSpring(1000, 0, 100)} />

@@ -38,8 +38,9 @@
 }
 
 .apex {
-    background: $cloud;
-    background: linear-gradient(180deg, $cloud 0%, rgba(255,255,255,0) 100%);
+    box-shadow: 1px 1px $lesslightgray;
+    background: $reallylightgray;
+    background: linear-gradient(180deg, $lightergray 0%, $reallylightgray 100%);
 }
 
 .footer {
@@ -49,4 +50,10 @@
 
 .footer-text {
     font-size: 85%;
+}
+
+.peak {
+    & > * {
+        max-width: 120rem;
+    }
 }

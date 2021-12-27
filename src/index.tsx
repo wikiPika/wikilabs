@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import {BrowserRouter as Router} from "react-router-dom"
 import Core from './Core';
 import reportWebVitals from './reportWebVitals';
 
@@ -9,11 +10,14 @@ Do any fontsource imports here.
  */
 
 import "@fontsource/titillium-web";
+import "@fontsource/inconsolata";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Core />
-  </React.StrictMode>,
+        <React.StrictMode>
+            <Router>
+                <Core />
+            </Router>
+        </React.StrictMode>,
   document.getElementById('root')
 );
 

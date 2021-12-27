@@ -1,9 +1,6 @@
 * {
     box-sizing: border-box;
-
-    overflow-x: hidden;
-
-    font-family: "Titillium Web";
+    font-family: "Titillium Web", sans-serif;
 }
 
 .row {
@@ -13,6 +10,14 @@
 .col {
     display: flex;
     flex-direction: column;
+}
+
+.f-grow {
+    flex-grow: 1;
+}
+
+.f-shrink {
+    flex-shrink: 1;
 }
 
 // col center, row center
@@ -65,6 +70,13 @@
     align-items: center;
 }
 
+// row start, col center
+.row-sc {
+    @extend .row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
 .h-bar {
     height: 1px;
     width: 100%;
@@ -81,21 +93,23 @@
 
 // font sizes 50% - 400%
 @for $i from 0 through 10 {
+    $number: 50 + 10 * $i;
     $font_size: 50% + (10% * $i);
-    .font-#{$i} {
-        border-radius: $font_size;
+    .font-#{$number} {
+        font-size: $font_size;
     }
 }
 @for $i from 1 through 10 {
+    $number: 150 + 25 * $i;
     $font_size: 150% + (25% * $i);
-    .font-#{$i} {
-        border-radius: $font_size;
+    .font-#{$number} {
+        font-size: $font_size;
     }
 }
 
-@for $i from 1 through 4 {
-    $num: 25 * $i;
-    $percentage: 25% * $i;
+@for $i from 1 through 20 {
+    $num: 5 * $i;
+    $percentage: 5% * $i;
     .w-#{$num} {
         width: $percentage;
     }
