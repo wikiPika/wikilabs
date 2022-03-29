@@ -1,0 +1,140 @@
+@import "./settings";
+
+.apex {
+    position: relative;
+    overflow: hidden;
+
+    h1, .h-1 {
+        font-family: Urbanist, sans-serif;
+        color: rgba(255, 255, 255, 0.9);
+        font-weight: 900;
+        letter-spacing: -3px;
+        padding: 0;
+    }
+
+    h3, .h-3 {
+        font-family: Urbanist, sans-serif;
+        color: rgba(255, 255, 255, 0.9);
+        font-weight: 700;
+        letter-spacing: -1px;
+        padding: 0;
+        margin-bottom: 0;
+
+        @media (max-width: 767px) {
+            font-size: 125%;
+        }
+
+        @media (min-width: 768px) and (max-width: 1279px) {
+            font-size: 175%;
+        }
+
+        @media (min-width: 1280px) {
+            font-size: 225%;
+        }
+    }
+
+    p, .p, h6, .h-6 {
+        font-family: "Titillium Web";
+        color: white;
+        font-weight: normal;
+        margin-bottom: 0;
+    }
+
+    > .top-banner {
+        position: relative;
+
+        z-index: 0;
+        @media (max-width: 767px) {
+            height: 15rem;
+        }
+
+        @media (min-width: 768px) and (max-width: 1279px) {
+            height: 25rem;
+        }
+
+        @media (min-width: 1280px) {
+            height: 30rem;
+        }
+
+        overflow: visible;
+
+        > .top-banner-img {
+            position: absolute;
+            left: -50vw;
+            right: -50vw;
+            margin-left: 50%;
+            width: 100vw;
+
+            object-fit: cover;
+
+            @media (max-width: 767px) {
+                height: 15rem;
+                clip-path: polygon(0 0, 100% 0, 100% calc(100% - 5rem), 0 100%);
+            }
+
+            @media (min-width: 768px) and (max-width: 1279px) {
+                height: 25rem;
+                clip-path: polygon(0 0, 100% 0, 100% calc(100% - 8rem), 0 100%);
+            }
+
+            @media (min-width: 1280px) {
+                height: 30rem;
+                clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10rem), 0 100%);
+            }
+        }
+
+        > .top-container {
+            position: absolute;
+            padding: 0 1rem;
+
+            @media (min-width: 1280px) {
+                .h-1 {
+                    font-size: 600%;
+                }
+
+                .h-6 {
+                    font-size: 125%;
+                }
+                top: 18rem;
+            }
+
+            @media (min-width: 768px) and (max-width: 1279px) {
+                .h-1 {
+                    font-size: 400%;
+                }
+                .h-6 {
+                    font-size: 100%;
+                }
+                top: 17rem;
+            }
+
+            @media (max-width: 767px) {
+                .h-1 {
+                    font-size: 300%;
+                }
+                .h-6 {
+                    font-size: 80%;
+                }
+                top: 10rem;
+            }
+        }
+    }
+}
+
+.page {
+    border-left: 1px solid $ash-gray;
+    border-right: 1px solid $ash-gray;
+    padding: 0 0.5rem;
+
+    @media (max-width: 767px) {
+        width: $documentWidth_quarter;
+    }
+
+    @media (min-width: 768px) and (max-width: 1279px) {
+        width: $documentWidth_half;
+    }
+
+    @media (min-width: 1280px) {
+        width: $documentWidth_full;
+    }
+}

@@ -1,0 +1,46 @@
+$documentWidth_full: min(90%, 72rem); // 1280+
+$documentWidth_half: min(90%, 40rem); // 768+
+$documentWidth_quarter: 90%; // 767-
+
+@font-face {
+    font-family: Nexa;
+    src: url("../fonts/nexa/NexaText-Bold.eot") format("eot");
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Nexa;
+    src: url("../fonts/nexa/NexaText-Light.eot") format("eot");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Urbanist;
+    src: url("../fonts/urbanist/Urbanist-Regular.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Urbanist;
+    src: url("../fonts/urbanist/Urbanist-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Urbanist;
+    src: url("../fonts/urbanist/Urbanist-Black.woff2") format("woff2");
+    font-weight: 900;
+    font-style: normal;
+}
+
+$ash-gray: #ACBDBA;
+$gainsboro: #cddddd;
+$orange-peel: #ff9f1c;
+$steel-blue: #4a7b9d;
+$glossy-grape: #a599b5;
+$jet: #2e2f2f;
+$rich-black: #051014;

@@ -1,0 +1,92 @@
+@import "./settings";
+
+.layout-apex {
+    position: relative;
+}
+
+.layout-navigation {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    color: white;
+    letter-spacing: 1px;
+    padding: 0 1rem;
+
+    p {
+        cursor: pointer;
+
+        @media (min-width: 1280px) {
+            font-size: 100%;
+        }
+
+        @media (min-width: 768px) and (max-width: 1279px) {
+            font-size: 90%;
+        }
+
+        @media (max-width: 767px) {
+            font-size: 80%;
+        }
+    }
+
+    span {
+        pointer-events: none;
+    }
+
+    img {
+        width: auto;
+
+        @media (min-width: 1280px) {
+            height: 6rem;
+            padding: 1rem;
+        }
+
+        @media (min-width: 768px) and (max-width: 1279px) {
+            height: 5rem;
+            padding: 0.75rem;
+        }
+
+        @media (max-width: 767px) {
+            height: 4rem;
+            padding: 0.5rem;
+        }
+    }
+
+    > div > * {
+        padding: 0.25rem 0.5rem;
+        margin: 1rem 0;
+    }
+}
+
+.layout-body {
+    position: relative;
+    min-height: calc(100vh);
+    background: linear-gradient(135deg, rgba(9, 64, 83, 1) 0%, rgba(53, 89, 162, 1) 20%, rgba(255, 215, 255, 1) 65%, rgba(208, 170, 255, 1) 90%, rgba(189, 37, 244, 1) 100%) no-repeat;
+    background-size: 200% 200%;
+    animation: gradient 15s ease infinite;
+}
+
+.layout-footer {
+    padding: 0.5rem 0;
+    border-top: 1px solid $ash-gray;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0 0;
+    }
+    20% {
+        background-position: 0 25%;
+    }
+    40% {
+        background-position: 33% 83%;
+    }
+    60% {
+        background-position: 83% 33%;
+    }
+    80% {
+        background-position: 25% 0;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
