@@ -32,13 +32,15 @@ export class Anim {
     }
 
     when(afterInstead = false) {
-        if (!afterInstead) this.active["transitions"]["when"] = "beforeChildren"
-        else this.active["transitions"]["when"] = "afterChildren"
+        if (!afterInstead) this.active["transition"]["when"] = "beforeChildren"
+        else this.active["transition"]["when"] = "afterChildren"
+        return this
     }
     loop(type: "loop" | "reverse" | "mirror" = "mirror", times: number | "Infinity" = "Infinity", delay: number = 0) {
-        this.active["transitions"]["repeatType"] = type
-        this.active["transitions"]["repeat"] = times
-        this.active["transitions"]["repeatDelay"] = delay
+        this.active["transition"]["repeatType"] = type
+        this.active["transition"]["repeat"] = times
+        this.active["transition"]["repeatDelay"] = delay
+        return this
     }
 
     add(prop: string, inactive: string, active: string) {
@@ -76,7 +78,7 @@ export class Anim {
         });
     }
 
-    static origin(coords: [number, number]) {
+    static point(coords: [number, number]) {
         return new Anim({
             x: coords[0] + "px",
             y: coords[1] + "px",

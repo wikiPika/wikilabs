@@ -5,6 +5,7 @@ import mainLogo from "../../img/main-logo-cropped.png";
 import {Anim} from "../../Animation";
 import {AnimatePresence, motion} from "framer-motion";
 import {useNavigate} from "react-router";
+import {useScreen} from "./ScreenContext";
 
 const navigationData = {
     "Home": "/",
@@ -12,31 +13,20 @@ const navigationData = {
 }
 
 export default function Navigation(props: {
-    scrollY: number,
 }) {
 
     const nav = useNavigate();
-    const [width, setWidth] = useState(window.innerWidth);
-    const listener = (e: any) => {
-        setWidth(e.target.innerWidth)
-    }
-
-    useEffect(() => {
-        window.addEventListener("resize", listener);
-        return () => {
-            window.removeEventListener("resize", listener);
-        }
-    }, [])
+    const screen = useScreen();
 
     return <motion.div className="layout-navigation w-100 row-bc"
                        variants={new Anim().add("backgroundColor", "rgba(255, 255, 255, 1)", "rgba(255, 255, 255, 0.1)")
                            .add("color", "rgb(0, 0, 0)", "rgb(255, 255, 255)")
                            .spring(120, 0, 20).build()}
-                       initial="inactive" animate={props.scrollY > 0 ? "active" : "inactive"}
+                       initial="inactive" animate={screen.scrollY > 0 ? "active" : "inactive"}
     >
         <motion.img style={{cursor: "pointer"}} whileHover={{backgroundColor: "rgba(0, 0, 0, 0.12)"}} onClick={() => nav("/")} src={mainLogo} />
         {
-            width > 540 &&
+            screen.width > 540 &&
             <div className="row-cc">
                 <AnimatePresence>
                     {
@@ -62,7 +52,7 @@ export default function Navigation(props: {
             </div>
         }
         {
-            width <= 540 && <div>borger</div>
+            screen.width <= 540 && <div>borger</div>
         }
     </motion.div>
 }

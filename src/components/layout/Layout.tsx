@@ -8,14 +8,8 @@ export default function Layout(props: {
     children: any,
 }) {
 
-    const [scrollY, setScrollY] = useState(0);
-
-    onscroll = (e) => {
-        setScrollY(window.scrollY / document.body.clientHeight)
-    }
-
     return <div className="layout-apex w-100 h-100">
-        <Navigation scrollY={scrollY} />
+        <Navigation />
         <div className="layout-body w-100 row-ct">
             {props.children}
         </div>

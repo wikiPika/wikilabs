@@ -11,8 +11,9 @@ export default function TextFade(props: {
     parentAnim?: any,
     textAnim?: any,
     intoView?: boolean
+    inherit?: boolean
 }) {
-    return <motion.div variants={props.parentAnim ?? base} initial="inactive" animate={props.intoView ? "" : "active"} whileInView={props.intoView ? "active" : ""} viewport={props.intoView ? {once: true} : {}}>
+    return <motion.div variants={props.parentAnim ?? base} initial={props.inherit ? "" : "inactive"} animate={props.inherit ? "" : props.intoView ? "" : "active"} whileInView={props.intoView ? "active" : ""} viewport={props.intoView ? {once: true} : {}}>
         {
             props.text.split("").map((v, i) =>
                 <motion.span key={i} variants={props.textAnim ?? bounce} className={props.className ?? ""} style={v != " " ? {display: "inline-block"} : {}}>

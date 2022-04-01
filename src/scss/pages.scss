@@ -10,6 +10,7 @@
         font-weight: 900;
         letter-spacing: -3px;
         padding: 0;
+        text-shadow: 1px 1px black;
     }
 
     h3, .h-3 {
@@ -21,7 +22,7 @@
         margin-bottom: 0;
 
         @media (max-width: 767px) {
-            font-size: 125%;
+            font-size: 200%;
         }
 
         @media (min-width: 768px) and (max-width: 1279px) {
@@ -34,10 +35,18 @@
     }
 
     p, .p, h6, .h-6 {
-        font-family: "Titillium Web";
+        font-family: "Titillium Web", sans-serif;
         color: white;
         font-weight: normal;
         margin-bottom: 0;
+
+        @media (min-width: 768px) and (max-width: 1279px) {
+            font-size: 80%;
+        }
+    }
+
+    a {
+        color: $gainsboro;
     }
 
     > .top-banner {
@@ -58,7 +67,7 @@
 
         overflow: visible;
 
-        > .top-banner-img {
+        > .top-banner-img, .fake-top-shadow, .fake-top-shadow2 {
             position: absolute;
             left: -50vw;
             right: -50vw;
@@ -67,25 +76,41 @@
 
             object-fit: cover;
 
+            clip-path: polygon(0 0, 100% 0, 100% 66%, 0 100%);
+
             @media (max-width: 767px) {
                 height: 15rem;
-                clip-path: polygon(0 0, 100% 0, 100% calc(100% - 5rem), 0 100%);
             }
 
             @media (min-width: 768px) and (max-width: 1279px) {
-                height: 25rem;
-                clip-path: polygon(0 0, 100% 0, 100% calc(100% - 8rem), 0 100%);
+                height: 24rem;
             }
 
             @media (min-width: 1280px) {
                 height: 30rem;
-                clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10rem), 0 100%);
             }
+        }
+
+        > .top-banner-img {
+            z-index: 2;
+        }
+
+        > .fake-top-shadow {
+            top: 0.5rem;
+            z-index: 1;
+            background-color: rgba(255, 255, 255, 0.2)
+        }
+
+        > .fake-top-shadow2 {
+            top: 1rem;
+            z-index: 0;
+            background-color: rgba(255, 255, 255, 0.2)
         }
 
         > .top-container {
             position: absolute;
             padding: 0 1rem;
+            z-index: 3;
 
             @media (min-width: 1280px) {
                 .h-1 {
@@ -95,7 +120,7 @@
                 .h-6 {
                     font-size: 125%;
                 }
-                top: 18rem;
+                top: 19rem;
             }
 
             @media (min-width: 768px) and (max-width: 1279px) {
@@ -110,12 +135,12 @@
 
             @media (max-width: 767px) {
                 .h-1 {
-                    font-size: 300%;
+                    font-size: 400%;
                 }
                 .h-6 {
                     font-size: 80%;
                 }
-                top: 10rem;
+                top: 9rem;
             }
         }
     }
@@ -124,7 +149,6 @@
 .page {
     border-left: 1px solid $ash-gray;
     border-right: 1px solid $ash-gray;
-    padding: 0 0.5rem;
 
     @media (max-width: 767px) {
         width: $documentWidth_quarter;
@@ -136,5 +160,68 @@
 
     @media (min-width: 1280px) {
         width: $documentWidth_full;
+    }
+}
+
+.bar {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 1rem 0.5rem;
+    margin: 0.5rem 0;
+
+    ul {
+        margin-top: 1rem;
+        margin-bottom: 0;
+    }
+}
+
+.bar-top {
+    @media (max-width: 767px) {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    @media (min-width: 768px) and (max-width: 1279px) {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    @media (min-width: 1280px) {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.progress-bar {
+
+    margin-left: 0.5rem;
+    position: relative;
+    overflow: hidden;
+    @media (max-width: 767px) {
+        width: 10rem;
+        height: 0.75rem;
+    }
+
+    @media (min-width: 768px) and (max-width: 1279px) {
+        width: 14rem;
+        height: 0.75rem;
+    }
+
+    @media (min-width: 1280px) {
+        width: 16rem;
+        height: 1rem;
+    }
+    background-color: rgba(0, 0, 0, 0.1);
+
+    > .progress-slider {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: white;
     }
 }
